@@ -1,0 +1,11 @@
+{
+  "name": "aprix-base64-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static tool to convert files, ZIP-wrapped files, or text into base64.",
+  "scripts": {
+    "start": "npx serve .",
+    "lint": "node --check app.js"
+  },
+  "devDependencies": {}
+}

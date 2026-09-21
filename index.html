@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aprix Base64 Studio</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-labelledby="app-title">
+        <header class="topbar">
+          <div class="brand-block">
+            <img
+              class="brand-logo"
+              src="./assets/aprix-logo.png"
+              alt="Aprix"
+              width="1191"
+              height="476"
+            />
+            <div>
+              <p class="eyebrow">Conversor de arquivos</p>
+              <h1 id="app-title">Aprix Base64 Studio</h1>
+            </div>
+          </div>
+          <button class="icon-button" id="resetButton" type="button" title="Limpar">
+            <span aria-hidden="true">↺</span>
+            <span class="sr-only">Limpar</span>
+          </button>
+        </header>
+
+        <div class="grid">
+          <section class="panel input-panel" aria-labelledby="source-title">
+            <div class="panel-header">
+              <h2 id="source-title">Entrada</h2>
+              <div class="segmented" role="tablist" aria-label="Tipo de entrada">
+                <button class="segment active" id="fileModeButton" type="button">
+                  Arquivo
+                </button>
+                <button class="segment" id="textModeButton" type="button">
+                  Texto
+                </button>
+              </div>
+            </div>
+
+            <div class="source source-file" id="fileSource">
+              <label class="dropzone" for="fileInput" id="dropzone">
+                <input
+                  id="fileInput"
+                  type="file"
+                  accept=".csv,.txt,.zip,text/csv,text/plain,application/zip"
+                />
+                <span class="drop-icon" aria-hidden="true">⇧</span>
+                <span class="drop-title">Selecionar ou soltar arquivo</span>
+                <span class="drop-subtitle" id="fileHint">CSV, ZIP ou TXT</span>
+              </label>
+            </div>
+
+            <div class="source source-text hidden" id="textSource">
+              <label class="field-label" for="textInput">Conteúdo</label>
+              <textarea
+                id="textInput"
+                spellcheck="false"
+                placeholder="Cole aqui o CSV ou texto que deve virar base64"
+              ></textarea>
+            </div>
+
+            <button class="primary-button" id="convertButton" type="button">
+              Converter
+            </button>
+          </section>
+
+          <section class="panel output-panel" aria-labelledby="result-title">
+            <div class="panel-header">
+              <div>
+                <h2 id="result-title">Resultado</h2>
+                <p class="status" id="statusText">Aguardando entrada</p>
+              </div>
+              <div class="actions">
+                <button class="icon-button" id="copyButton" type="button" title="Copiar">
+                  <span aria-hidden="true">⧉</span>
+                  <span class="sr-only">Copiar</span>
+                </button>
+                <button class="icon-button" id="downloadButton" type="button" title="Baixar">
+                  <span aria-hidden="true">↓</span>
+                  <span class="sr-only">Baixar</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="metrics" aria-live="polite">
+              <div>
+                <span>Entrada</span>
+                <strong id="inputSize">0 B</strong>
+              </div>
+              <div>
+                <span>Saída</span>
+                <strong id="outputSize">0 B</strong>
+              </div>
+              <div>
+                <span>Modo</span>
+                <strong id="modeLabel">Direto</strong>
+              </div>
+            </div>
+
+            <textarea
+              id="outputText"
+              class="output"
+              spellcheck="false"
+              readonly
+              placeholder="O base64 gerado aparece aqui"
+            ></textarea>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
